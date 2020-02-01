@@ -8,6 +8,7 @@ const users = require("./routes/api/users");
 const projects = require("./routes/api/projects");
 const tasks = require("./routes/api/tasks");
 const photos = require("./routes/api/photos");
+const googlesheets = require("./routes/api/googlesheets");
 
 const app = express();
 
@@ -44,6 +45,7 @@ app.use("/api/users", users);
 app.use("/api/projects", projects);
 app.use("/api/tasks", tasks);
 app.use("/api/photos", photos);
+app.use("/api/googlesheets", googlesheets);
 
 
 // Serve static assets (build folder) if in production
