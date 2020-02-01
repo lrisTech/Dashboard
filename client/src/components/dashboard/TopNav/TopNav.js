@@ -64,7 +64,7 @@ class TopNav extends Component {
           </i>
           <Link to="/dashboard">
             <h1 className="brand-header">
-              Team<span className="brand-header-sub">s</span>
+              PCT
             </h1>
           </Link>
         </div>

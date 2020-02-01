@@ -34,77 +34,84 @@ class Dashboard extends Component {
   };
 
   render() {
-    const { projects } = this.props.projects;
+    // const { projects } = this.props.projects;
 
-    let content;
+    // let content;
 
-    let projectData = projects.sort().map(project => (
-      <div
-        key={project._id}
-        className="project-icon"
-        onClick={() => this.props.history.push(`/projects/${project._id}`)}
-      >
-        <div className="project-name">{project.name}</div>
-        <div
-          className="project-info-button"
-          onClick={this.toggleEditModal.bind(
-            this,
-            project.name,
-            project.teamMembers,
-            project._id,
-            project.owner
-          )}
-        >
-          Edit project
-        </div>
-        <div className="project-info-button">Go to project</div>
-      </div>
-    ));
+    // let projectData = projects.sort().map(project => (
+    //   <div
+    //     key={project._id}
+    //     className="project-icon"
+    //     onClick={() => this.props.history.push(`/projects/${project._id}`)}
+    //   >
+    //     <div className="project-name">{project.name}</div>
+    //     <div
+    //       className="project-info-button"
+    //       onClick={this.toggleEditModal.bind(
+    //         this,
+    //         project.name,
+    //         project.teamMembers,
+    //         project._id,
+    //         project.owner
+    //       )}
+    //     >
+    //       Edit project
+    //     </div>
+    //     <div className="project-info-button">Go to project</div>
+    //   </div>
+    // ));
 
-    if (projects.length > 0) {
-      // At least one project
-      content = (
-        <>
-          <button className="main-btn" onClick={this.toggleModal}>
-            Create another project
-          </button>
-          <div className="modal-wrapper">
-            <Modal
-              onClose={this.toggleModal}
-              modal={this.state.modal}
-              edit={this.state.edit}
-              name={this.state.name}
-              members={this.state.members}
-              id={this.state.id}
-              owner={this.state.owner}
-            />
-          </div>
-          <div className="projects-wrapper">{projectData}</div>
-        </>
-      );
-    } else {
-      // No projects
-      content = (
-        <>
-          <div className="projects">
-            <div className="no-projects">
-              <h1 className="header">You have no projects</h1>
-              <button className="main-btn" onClick={this.toggleModal}>
-                Create your first project
-              </button>
-              <div className="modal-wrapper">
-                <Modal onClose={this.toggleModal} modal={this.state.modal} />
-              </div>
-            </div>
-          </div>
-        </>
-      );
-    }
+    // if (projects.length > 0) {
+    //   // At least one project
+    //   content = (
+    //     <>
+    //       <button className="main-btn" onClick={this.toggleModal}>
+    //         Create another project
+    //       </button>
+    //       <div className="modal-wrapper">
+    //         <Modal
+    //           onClose={this.toggleModal}
+    //           modal={this.state.modal}
+    //           edit={this.state.edit}
+    //           name={this.state.name}
+    //           members={this.state.members}
+    //           id={this.state.id}
+    //           owner={this.state.owner}
+    //         />
+    //       </div>
+    //       <div className="projects-wrapper">{projectData}</div>
+    //     </>
+    //   );
+    // } else {
+    //   // No projects
+    //   content = (
+    //     <>
+    //       <div className="projects">
+    //         <div className="no-projects">
+    //           <h1 className="header">You have no projects</h1>
+    //           <button className="main-btn" onClick={this.toggleModal}>
+    //             Create your first project
+    //           </button>
+    //           <div className="modal-wrapper">
+    //             <Modal onClose={this.toggleModal} modal={this.state.modal} />
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </>
+    //   );
+    // }
+
+    // return (
+    //   <div className="main-content">
+    //     <h1 className="header">Your Projects</h1>
+    //     {/* {content} */}
+    //   </div>
+    // );
 
     return (
       <div className="main-content">
-        <h1 className="header">Your Projects</h1>
-        {content}
+        <h1 className="header">Welcome to your PCT Dashboard</h1>
+        {/* {content} */}
       </div>
     );
   }
