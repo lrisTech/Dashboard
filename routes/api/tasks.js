@@ -6,7 +6,7 @@ const Task = require("../../models/Task");
 
 // @route GET api/tasks/:id
 // @desc Get tasks for specific project
-// @access Private
+// @access Private`
 router.get(
   "/:id",
   passport.authenticate("jwt", { session: false }),
