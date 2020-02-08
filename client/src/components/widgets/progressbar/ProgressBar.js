@@ -1,5 +1,6 @@
 import React from "react";
 // import logo from "./logo.svg";
+import axios from "axios"
 import "./ProgressBar.css";
 
 class ProgressBarEx extends React.Component {
@@ -7,9 +8,23 @@ class ProgressBarEx extends React.Component {
     super(props);
 
     this.state = {
-      percentage: 60
+        posts: [],
+        percentage: 60
     };
-  }
+}
+
+    componentDidMount() {
+      axios.get('/api/googlesheets')
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
+
+
+
   render() {
     return (
       <div>
