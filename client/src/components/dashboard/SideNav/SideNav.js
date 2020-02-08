@@ -64,12 +64,13 @@ class SideNav extends Component {
             </li>
           </div>
         </ul>
+        {/* PART OF PROJECTS CODE, commented but kept to use as formatting reference
         <ul className="bottom">
           <li>
             <h4 className="side-projects-header">Projects</h4>
           </li>
           <div className="project-listings">{projectData}</div>
-        </ul>
+        </ul> */}
       </nav>
     );
   }

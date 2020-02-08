@@ -74,5 +74,16 @@ router.delete(
   
 
 
+// @route GET api/photos/
+// @desc test get function
+// TODO: @access Private 
+router.get(
+    "/",
+    // passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+        res.send("hey")
+    }
+);
+
   
 module.exports = router

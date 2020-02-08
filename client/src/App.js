@@ -19,6 +19,8 @@ import Layout from "./components/dashboard/Layout";
 import NotFound from "./components/404/404";
 
 // Style
+
+
 import "./App.scss";
 
 // Check for token to keep user logged in
