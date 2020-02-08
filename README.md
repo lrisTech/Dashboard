@@ -57,3 +57,11 @@ npm run dev
 // Assumes Node and npm are installed on machine
 // Server runs on http://localhost:5000 (set in server.js) and client on http://localhost:3000 (default for Create React App)
 ```
+
+If you are running problems with MongoDB on MacOS Catalina, do the following:
+
+```
+mkdir -p /System/Volumes/Data/data/db
+
+mongod --dbpath /System/Volumes/Data/data/db
+```
