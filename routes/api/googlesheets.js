@@ -67,7 +67,7 @@ function getNewToken(oAuth2Client, callback) {
 // @desc Get accountability points for a specific user
 // @access Private
 
-async function listAccountabilities(auth, callback) {
+async function listAccountabilities(auth, callback, name) {
   const sheets = google.sheets({version: 'v4', auth});
   let rows;
   sheets.spreadsheets.values.get({
@@ -79,7 +79,13 @@ async function listAccountabilities(auth, callback) {
     if (rows.length) {
       // Print columns A and E, which correspond to indices 0 and 4.
       // console.log("From listAccountabilities:", rows);
-      callback(rows)
+      for (var i = 0; i < rows.length; i++) {
+          if (rows[i][0].toLowerCase() == name.toLowerCase()) {
+              callback(rows[i])
+              return;
+          }
+      }
+      callback("No data found.")
   } else {
       console.log('No data found.');
     }
@@ -106,9 +112,31 @@ router.get(
        fs.readFile(TOKEN_PATH, (err, token) => {
         if (err) return getNewToken(oAuth2Client, callback);
         oAuth2Client.setCredentials(JSON.parse(token));
-        listAccountabilities(oAuth2Client, (x => {res.send(x)}));
+        listAccountabilities(oAuth2Client, (x => {res.send(x)}), req.body.users.name);
       });
-      // res.send(fuck)
+    });
+  }
+);
+
+router.post(
+  "/",
+  //passport.authenticate("jwt", { session: false }),
+   (req, res) => {
+    console.log(req.body.users.name)
+    // Load client secrets from a local file.
+    fs.readFile('credentials.json', (err, content) => {
+      if (err) return console.log('Error loading client secret file:', err);
+      const credentials = JSON.parse(content)
+      // Authorize a client with credentials, then call the Google Sheets API.
+      const {client_secret, client_id, redirect_uris} = credentials.installed;
+      const oAuth2Client = new google.auth.OAuth2(
+          client_id, client_secret, redirect_uris[0]);
+      // Check if we have previously stored a token.
+       fs.readFile(TOKEN_PATH, (err, token) => {
+        if (err) return getNewToken(oAuth2Client, callback);
+        oAuth2Client.setCredentials(JSON.parse(token));
+        listAccountabilities(oAuth2Client, (x => {res.send(x)}), "Eric");
+      });
     });
   }
 );
