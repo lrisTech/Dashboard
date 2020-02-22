@@ -1,4 +1,5 @@
 .progress-bar {
+  background: #786b7a;
   position: relative;
   height: 20px;
   width: 350px;
@@ -7,7 +8,7 @@
 }
 
 .filler {
-  background: #1da598;
+  background: #5a395f;
   height: 100%;
   border-radius: inherit;
   transition: width 0.2s ease-in;
