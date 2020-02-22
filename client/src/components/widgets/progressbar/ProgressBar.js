@@ -11,31 +11,35 @@ class ProgressBarEx extends React.Component {
 
     this.state = {
         posts: [],
-        percentage: 0
+        percentage: 0,
+        points: 0,
+        totalPoints: 0
     };
 }
 
     async componentDidMount() {
-        let points = 10
+        let points = 0
         const usersData = {users: this.props.auth.user}
         axios.post('/api/googlesheets', usersData)
-
         .then(response => {
             console.log(response);
             let totalPoints = 24
-            if (response.data.length === 5) {
-                if (response.data[4] === "Provisional") {
-                    //Points: 14
+            const status = response.data[4];
+            switch(status) {
+                case "Inactive":
+                    points = 100
+                    break;
+                case "Provisional":
                     totalPoints = 14
-                } else {
-                    //For inactive brothers, should be 0
-                    totalPoints = 3
-                }
+                default:
+                    points = (response.data[2] / totalPoints)*100
             }
-            points = (response.data[2] / totalPoints)*100
-
             console.log(response.data[0]+ ": " + response.data[2])
-            this.setState({percentage: points})
+            this.setState({
+                percentage: points,
+                points: response.data[2],
+                totalPoints: totalPoints
+            })
         })
         .catch(error => {
             console.log(error);
@@ -46,7 +50,7 @@ class ProgressBarEx extends React.Component {
   render() {
     return (
       <div>
-        <ProgressBar percentage={this.state.percentage} />
+        <ProgressBar percentage={this.state.percentage} points={this.state.points} totalPoints={this.state.totalPoints}/>
       </div>
     );
   }
@@ -60,8 +64,14 @@ const Filler = props => {
 
 const ProgressBar = props => {
   return (
-    <div className="progress-bar">
-      <Filler percentage={props.percentage} />
+    <div className="window">
+        <div className="windowHeader">
+            Accountability Tracker
+        </div>
+        <div className="progress-bar">
+            <Filler percentage={props.total} />
+        </div>
+        {props.points} / {props.totalPoints}
     </div>
   );
 };

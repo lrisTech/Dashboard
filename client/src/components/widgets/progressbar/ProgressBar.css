@@ -1,14 +1,30 @@
 .progress-bar {
   position: relative;
-  height: 20px;
-  width: 350px;
+  height: 31px;
+  width: 486px;
   border-radius: 50px;
-  border: 1px solid #333;
+  border: 2px solid #FFFFFF;
+  margin: auto;
 }
 
 .filler {
-  background: #1da598;
+  background: #5A395F;
   height: 100%;
   border-radius: inherit;
   transition: width 0.2s ease-in;
+}
+
+.window {
+    padding-top: 1px;
+    background: #251728;
+    width: 546px;
+    height: 146px;
+    box-shadow: 0px 3px 6px #0000009C;
+    opacity: 1;
+}
+
+.windowHeader {
+    padding-top: 15px;
+    font-family: 'proxima-nova', sans-serif;
+    color: #786B7A;
 }
