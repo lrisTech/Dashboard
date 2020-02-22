@@ -85,7 +85,7 @@ async function listAccountabilities(auth, callback, name) {
               return;
           }
       }
-      callback("oopsie fuckie wookie")
+      callback("No data found.")
   } else {
       console.log('No data found.');
     }
