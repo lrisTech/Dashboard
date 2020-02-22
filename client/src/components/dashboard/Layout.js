@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getProjects } from "../../actions/projectsActions";
 
+
+
 import {
   BrowserRouter as Router,
   Route,
@@ -17,7 +19,6 @@ import Dashboard from "./MainContent/Dashboard";
 import Tasks from "./MainContent/Tasks";
 import Project from "./MainContent/Project/Project";
 import NotFound from "../404/404";
-import ProgressBarEx from "../widgets/progressbar/ProgressBar"
 
 import "./Layout.scss";
 
@@ -74,7 +75,6 @@ class Layout extends Component {
               <Route exact path="/tasks" component={Tasks} />
               <Route component={NotFound} />
             </Switch>
-            <ProgressBarEx></ProgressBarEx>
           </div>
         </>
       );
