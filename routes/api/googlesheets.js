@@ -122,7 +122,6 @@ router.post(
   "/",
   //passport.authenticate("jwt", { session: false }),
    (req, res) => {
-    console.log(req.body.users.name)
     // Load client secrets from a local file.
     fs.readFile('credentials.json', (err, content) => {
       if (err) return console.log('Error loading client secret file:', err);
@@ -135,7 +134,7 @@ router.post(
        fs.readFile(TOKEN_PATH, (err, token) => {
         if (err) return getNewToken(oAuth2Client, callback);
         oAuth2Client.setCredentials(JSON.parse(token));
-        listAccountabilities(oAuth2Client, (x => {res.send(x)}), "Eric");
+        listAccountabilities(oAuth2Client, (x => {res.send(x)}), req.body.users.name);
       });
     });
   }
