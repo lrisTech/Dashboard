@@ -4,6 +4,7 @@ import "./Dashboard.scss";
 
 import { connect } from "react-redux";
 import ProgressBar from "../../widgets/progressbar/ProgressBar"
+import Announcements from "../../widgets/progressbar/announcements/Announcements"
 
 
 import Modal from "./Modal/Modal";
@@ -127,7 +128,7 @@ class Dashboard extends Component {
         </div>
         <div className = "column">
           <div className = "module announcements">
-
+            <Announcements></Announcements>
           </div>
           <div className = "module suggestionBox">
 

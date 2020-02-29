@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 // Create Schema
 const AnnouncementSchema = new Schema({
   owner: {
-    type: String,
+    type: Object,
     required: true
   },
   team: {
@@ -12,15 +12,15 @@ const AnnouncementSchema = new Schema({
     required: true
   },
   link: {
-    type: mongoose.SchemaTypes.Url,
+    type: String,
     required: false
   },
   title: {
-    type: Date,
+    type: String,
     required: true
   },
   description: {
-    type: Date,
+    type: String,
     required: true
   },
   date: {
@@ -29,4 +29,4 @@ const AnnouncementSchema = new Schema({
   }
 });
 
-module.exports = Photo = mongoose.model("photos", PhotoSchema);
+module.exports = Announcement = mongoose.model("announcements", AnnouncementSchema);

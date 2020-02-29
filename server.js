@@ -6,6 +6,7 @@ const path = require("path");
 
 const users = require("./routes/api/users");
 const projects = require("./routes/api/projects");
+const announcements = require("./routes/api/announcements");
 const tasks = require("./routes/api/tasks");
 const photos = require("./routes/api/photos");
 const googlesheets = require("./routes/api/googlesheets");
@@ -43,6 +44,7 @@ require("./config/passport")(passport);
 // Routes
 app.use("/api/users", users);
 app.use("/api/projects", projects);
+app.use("/api/announcements", announcements);
 app.use("/api/tasks", tasks);
 app.use("/api/photos", photos);
 app.use("/api/googlesheets", googlesheets);
@@ -61,10 +63,5 @@ if (process.env.NODE_ENV === "production") {
 const port = process.env.PORT || 5000;
 
 process.on('SIGINT', () => { console.log("Bye bye!"); process.exit(); });
-process.on('SIGUSR2', function () { 
-  console.log("Try restarting again if error is thrown!");
-  process.exit();
-});
-
 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));

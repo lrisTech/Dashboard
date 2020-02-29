@@ -4,7 +4,7 @@ const passport = require("passport");
 
 const Announcement = require("../../models/Announcement");
 
-//TODO converted projects to announcements, but it still filters by team members
+//TODO.5 converted projects to announcements, but it still filters by team members
 // @route GET api/announcements
 // @desc Get all announcements for a specific user
 // @access Private
@@ -12,36 +12,47 @@ router.get(
   "/",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
-    let projectsArr = [];
+  
+    let announcementsArr = [];
 
     // Member announcements
+    // await Announcement.find({})
+    //   .then(announcements => {
+    //     console.log(announcements)
+    //     announcements.map(announcement => {
+    //       announcement.teamMembers &&
+    //         announcement.teamMembers.map(member => {
+    //           if (member.email == req.user.email) {
+    //             announcementsArr.push(announcement);
+    //           }
+    //         });
+    //     });
+    //   })
+    //   .catch(err => console.log(err));
+
     await Announcement.find({})
       .then(announcements => {
-        console.log(announcements)
-        announcements.map(announcement => {
-          announcement.teamMembers &&
-            announcement.teamMembers.map(member => {
-              if (member.email == req.user.email) {
-                announcementsArr.push(announcement);
-              }
-            });
-        });
+        // console.log(announcements)
+        res.json(announcements)
       })
       .catch(err => console.log(err));
 
-    const OWNER = {
-      id: req.user.id,
-      name: req.user.name,
-      email: req.user.email
-    };
+    // const OWNER = {
+    //   id: req.user.id,
+    //   name: req.user.name,
+    //   email: req.user.email
+    // };
+    // res.json("yo")
+
 
     // Combine with owner announcements
-    await Announcement.find({ owner: OWNER })
-      .then(announcements => {
-        let finalArr = [...announcements, ...projectsArr];
-        res.json(finalArr);
-      })
-      .catch(err => console.log(err));
+    // await Announcement.find({ owner: OWNER })
+    //   .then(announcements => {
+    //     let finalArr = [...announcements, ...announcementsArr];
+    //     console.log(finalArr)
+    //     res.json(finalArr);
+    //   })
+    //   .catch(err => console.log(err));
   }
 );
 
@@ -63,16 +74,17 @@ router.get(
 // @access Private
 router.post(
   "/create",
-  passport.authenticate("jwt", { session: false }),
+//   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
-    const OWNER = {
-      id: req.user.id,
-      name: req.user.name,
-      email: req.user.email
-    };
+    console.log(req.body)
+    // const OWNER = {
+    //   id: req.user.id,
+    //   name: req.user.name,
+    //   email: req.user.email
+    // };
 
-    const NEW_ANNOUNCEMENT= await new Project({
-      owner: OWNER,
+    const NEW_ANNOUNCEMENT= await new Announcement({
+      owner: "hi",//OWNER,
       team: req.body.team,
       link: req.body.link,
       title: req.body.title,
@@ -108,16 +120,15 @@ router.patch(
   }
 );
 
-//TODO
-// @route DELETE api/projects/delete/:id
-// @desc Delete an existing project
+// @route DELETE api/announcements/delete/:id
+// @desc Delete an existing announcement
 // @access Private
 router.delete(
   "/delete/:id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    Project.findById(req.params.id).then(project => {
-      project.remove().then(() => res.json({ success: true }));
+    Announcement.findById(req.params.id).then(announcement => {
+      announcement.remove().then(() => res.json({ success: true }));
     });
   }
 );
