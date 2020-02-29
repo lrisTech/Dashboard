@@ -3,7 +3,7 @@ import "./MainContent.scss";
 import "./Dashboard.scss";
 
 import { connect } from "react-redux";
-import ProgressBar from "../../widgets/progressbar/ProgressBar"
+import ProgressBarEx from "../../widgets/progressbar/ProgressBar"
 
 
 import Modal from "./Modal/Modal";
@@ -138,7 +138,7 @@ class Dashboard extends Component {
             
           </div>
           <div className = "module progressbar">
-            
+            <ProgressBarEx/> 
           </div>
         </div>
       </div>

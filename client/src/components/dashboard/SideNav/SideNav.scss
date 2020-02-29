@@ -4,8 +4,7 @@
   min-width: 225px;
   max-width: 225px;
   height: 100vh;
-  border-right: 2px solid $lighterGray;
-  background-color: $mainDark;
+  background-color: $sidebar;
   position: fixed;
   z-index: 1;
   margin-left: 0px;
@@ -52,7 +51,7 @@
         margin-bottom: 1rem;
 
         &:hover {
-          background-color: $lightDark;
+          background-color: $module;
         }
 
         .icon {
@@ -75,7 +74,7 @@
 
 .active-page {
   color: $white !important;
-  background-color: $lightDark;
+  background-color: $sidebar;
   transition: all 0.25s ease 0s;
 }
 

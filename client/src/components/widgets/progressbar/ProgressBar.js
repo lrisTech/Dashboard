@@ -58,20 +58,25 @@ class ProgressBarEx extends React.Component {
 
 const Filler = props => {
   return (
-    <div className="filler" style={{ width: `${props.percentage}%` }}></div>
-  );
+    <div className="filler" style={{ width: `${props.percentage}%` }}>
+      20
+   </div>
+    
+    );
 };
 
 const ProgressBar = props => {
   return (
     <div className="window">
         <div className="windowHeader">
-            Accountability Tracker
+            ACCOUNTABILITY TRACKER
         </div>
         <div className="progress-bar">
             <Filler percentage={props.total} />
         </div>
+        <div className="ratio">
         {props.points} / {props.totalPoints}
+        </div>
     </div>
   );
 };
