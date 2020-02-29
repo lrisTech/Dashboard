@@ -60,4 +60,11 @@ if (process.env.NODE_ENV === "production") {
 
 const port = process.env.PORT || 5000;
 
+process.on('SIGINT', () => { console.log("Bye bye!"); process.exit(); });
+process.on('SIGUSR2', function () { 
+  console.log("Try restarting again if error is thrown!");
+  process.exit();
+});
+
+
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
