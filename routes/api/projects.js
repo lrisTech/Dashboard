@@ -9,28 +9,29 @@ const Project = require("../../models/Project");
 // @access Private
 router.get(
   "/",
-  passport.authenticate("jwt", { session: false }),
+  //passport.authenticate("jwt", { session: false }),
   async (req, res) => {
-    let projectsArr = [];
+    res.json("hi")
+//     let projectsArr = [];
+    
+//     // Member projects
+//     await Project.find({})
+//       .then(projects => {
+//         projects.map(project => {
+//           project.teamMembers &&
+//             project.teamMembers.map(member => {
+//               if (member.email == req.user.email) {
+//                 projectsArr.push(project);
+//               }
+//             });
+//         });
+//       })
+//       .catch(err => console.log(err));
 
-    // Member projects
-    await Project.find({})
-      .then(projects => {
-        projects.map(project => {
-          project.teamMembers &&
-            project.teamMembers.map(member => {
-              if (member.email == req.user.email) {
-                projectsArr.push(project);
-              }
-            });
-        });
-      })
-      .catch(err => console.log(err));
-
-    const OWNER = {
-      id: req.user.id,
-      name: req.user.name,
-      email: req.user.email
+//     const OWNER = {
+//       id: req.user.id,
+//       name: req.user.name,
+//       email: req.user.email
     };
 
     // Combine with owner projects
