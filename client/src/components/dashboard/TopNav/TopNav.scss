@@ -5,8 +5,7 @@
   justify-content: space-between;
   align-items: center;
   height: 70px;
-  border-bottom: 2px solid $lighterGray;
-  background-color: $white;
+  background-color: #251728;
   position: fixed;
   width: 100%;
   min-width: 1100px;
@@ -20,6 +19,7 @@
   align-items: center;
 
   .hamburger-top-menu {
+    color: $white;
     font-size: 20px;
     transition: all 0.25s ease 0s;
     display: none;

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { logoutUser } from "../../../actions/authActions";
 import { Link, withRouter } from "react-router-dom";
-
+import Img from 'react-image'
 import "./TopNav.scss";
 
 class TopNav extends Component {
@@ -63,9 +63,11 @@ class TopNav extends Component {
             menu
           </i>
           <Link to="/dashboard">
-            <h1 className="brand-header">
+          <Img src="https://images.squarespace-cdn.com/content/572e3731c2ea512159072bd0/1541293926167-U839LK19IMMH6S013997/PCT+Gray+Logo+1-02.png?format=1500w&content-type=image%2Fpng" style = {{height: 80}}/>
+          {/* <Img src={{logo}} style={{height: 1000}}/> */}
+            {/* <h1 className="brand-header">
               PCT
-            </h1>
+            </h1> */}
           </Link>
         </div>
         <ul className="right-top">

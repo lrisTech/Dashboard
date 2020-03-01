@@ -3,8 +3,13 @@ import "./MainContent.scss";
 import "./Dashboard.scss";
 
 import { connect } from "react-redux";
+import ProgressBarEx from "../../widgets/progressbar/ProgressBar"
+
 
 import Modal from "./Modal/Modal";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 class Dashboard extends Component {
   state = {
@@ -107,12 +112,37 @@ class Dashboard extends Component {
     //     {/* {content} */}
     //   </div>
     // );
-
+        {/* <ProgressBar></ProgressBar> */}
     return (
-      <div className="main-content">
-        <h1 className="header">Welcome to your PCT Dashboard</h1>
-        {/* {content} */}
+      <div className="main-content" style ={{display: "flex", alignContent: "stretch", height: "100vh", backgroundColor: "transparent"}}>
+                {/* <h1 className="header">Welcome to your PCT Dashboard</h1> */}
+
+        <div className = "column">
+          <div className = "module profileInfo">
+
+          </div>
+          <div className = "module photoOfDay">
+
+          </div>
+        </div>
+        <div className = "column">
+          <div className = "module announcements">
+
+          </div>
+          <div className = "module suggestionBox">
+
+          </div>
+        </div>
+        <div className = "column">
+          <div className = "module calendar">
+            
+          </div>
+          <div className = "module progressbar">
+            <ProgressBarEx/> 
+          </div>
+        </div>
       </div>
+      
     );
   }
 }

@@ -34,6 +34,7 @@ if (localStorage.jwtTokenTeams) {
 
   // Set user and isAuthenticated
   store.dispatch(setCurrentUser(decoded));
+  // console.log(this.props.auth.user)
 
   // Check for expired token
   const currentTime = Date.now() / 1000; // to get in milliseconds
