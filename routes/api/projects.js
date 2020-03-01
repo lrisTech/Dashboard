@@ -32,16 +32,16 @@ router.get(
 //       id: req.user.id,
 //       name: req.user.name,
 //       email: req.user.email
-    };
+    }
 
     // Combine with owner projects
-    await Project.find({ owner: OWNER })
-      .then(projects => {
-        let finalArr = [...projects, ...projectsArr];
-        res.json(finalArr);
-      })
-      .catch(err => console.log(err));
-  }
+  //   await Project.find({ owner: OWNER })
+  //     .then(projects => {
+  //       let finalArr = [...projects, ...projectsArr];
+  //       res.json(finalArr);
+  //     })
+  //     .catch(err => console.log(err));
+  // }
 );
 
 // @route GET api/projects/:id
