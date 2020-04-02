@@ -1,7 +1,7 @@
 {
-  "name": "teams",
+  "name": "PhiChiTheta",
   "version": "1.0.0",
-  "description": "Project Management for Teams",
+  "description": "Dashboard",
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",

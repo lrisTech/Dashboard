@@ -132,7 +132,7 @@ router.post(
           client_id, client_secret, redirect_uris[0]);
       // Check if we have previously stored a token.
        fs.readFile(TOKEN_PATH, (err, token) => {
-        if (err) return getNewToken(oAuth2Client, callback);
+        if (err) return getNewToken(oAuth2Client, () => console.log("hi"));
         oAuth2Client.setCredentials(JSON.parse(token));
         listAccountabilities(oAuth2Client, (x => {res.send(x)}), req.body.users.name);
       });
