@@ -33,12 +33,13 @@ class ProgressBarEx extends React.Component {
                     totalPoints = 14
                 default:
                     points = (response.data[2] / totalPoints)*100
+                    points = Math.min(points, 100)
             }
             console.log(response.data[0]+ ": " + response.data[2])
             this.setState({
-                percentage: points,
-                points: response.data[2],
-                totalPoints: totalPoints
+              percentage: points,
+              points: response.data[2],
+              totalPoints: totalPoints
             })
         })
         .catch(error => {
@@ -58,10 +59,8 @@ class ProgressBarEx extends React.Component {
 
 const Filler = props => {
   return (
-    <div className="filler" style={{ width: `${props.percentage}%` }}>
-      20
+    <div className="filler" style={{ width: `${props.percentage}%`, color:"red" }}>
    </div>
-    
     );
 };
 
@@ -72,10 +71,10 @@ const ProgressBar = props => {
             ACCOUNTABILITY TRACKER
         </div>
         <div className="progress-bar">
-            <Filler percentage={props.total} />
+            <Filler percentage={props.percentage} />
         </div>
         <div className="ratio">
-        {props.points} / {props.totalPoints}
+          {props.points} / {props.totalPoints}
         </div>
     </div>
   );

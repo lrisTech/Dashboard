@@ -1,3 +1,5 @@
 /config/passwords.js
 credentials.*
 token.*
+
+/node_modules

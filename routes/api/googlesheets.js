@@ -48,7 +48,9 @@ function getNewToken(oAuth2Client, callback) {
     input: process.stdin,
     output: process.stdout,
   });
+
   rl.question('Enter the code from that page here: ', (code) => {
+    console.log("code", code)
     rl.close();
     oAuth2Client.getToken(code, (err, token) => {
       if (err) return console.error('Error while trying to retrieve access token', err);
@@ -78,7 +80,7 @@ async function listAccountabilities(auth, callback, name) {
     rows = res.data.values;
     if (rows.length) {
       // Print columns A and E, which correspond to indices 0 and 4.
-      // console.log("From listAccountabilities:", rows);
+      console.log("From listAccountabilities:", rows);
       for (var i = 0; i < rows.length; i++) {
           if (rows[i][0].toLowerCase() == name.toLowerCase()) {
               callback(rows[i])
@@ -103,7 +105,7 @@ router.get(
     // Load client secrets from a local file.
     fs.readFile('credentials.json', (err, content) => {
       if (err) return console.log('Error loading client secret file:', err);
-      const credentials = JSON.parse(content)
+      const credentials = JSON.parse(content) 
       // Authorize a client with credentials, then call the Google Sheets API.
       const {client_secret, client_id, redirect_uris} = credentials.installed;
       const oAuth2Client = new google.auth.OAuth2(
@@ -126,10 +128,11 @@ router.post(
     fs.readFile('credentials.json', (err, content) => {
       if (err) return console.log('Error loading client secret file:', err);
       const credentials = JSON.parse(content)
+      // console.log(credentials)
       // Authorize a client with credentials, then call the Google Sheets API.
-      const {client_secret, client_id, redirect_uris} = credentials.installed;
+      const {client_secret, client_id, javascript_origins} = credentials.web;
       const oAuth2Client = new google.auth.OAuth2(
-          client_id, client_secret, redirect_uris[0]);
+          client_id, client_secret, javascript_origins[0]);
       // Check if we have previously stored a token.
        fs.readFile(TOKEN_PATH, (err, token) => {
         if (err) return getNewToken(oAuth2Client, () => console.log("hi"));
