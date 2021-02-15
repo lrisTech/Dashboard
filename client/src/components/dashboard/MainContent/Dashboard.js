@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./MainContent.scss";
 import "./Dashboard.scss";
+import ReactDOM from 'react-dom';
+
 
 import { connect } from "react-redux";
 import ProgressBarEx from "../../widgets/progressbar/ProgressBar"
@@ -37,6 +39,8 @@ class Dashboard extends Component {
       owner: owner
     });
   };
+
+
 
   render() {
     // const { projects } = this.props.projects;
@@ -115,9 +119,10 @@ class Dashboard extends Component {
         {/* <ProgressBar></ProgressBar> */}
     return (
       <div className="main-content" style ={{display: "flex", alignContent: "stretch", height: "100vh", backgroundColor: "transparent"}}>
-                {/* <h1 className="header">Welcome to your PCT Dashboard</h1> */}
-
         <div className = "column">
+          <div className = "module podcastplayer" id = "podcastWidget">
+            <iframe src="https://open.spotify.com/embed-podcast/episode/0tFhznJp83T6yzLjtUwgKw" width="100%" height="100%" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+          </div>
           <div className = "module profileInfo">
 
           </div>
