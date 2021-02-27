@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./MainContent.scss";
 import "./Dashboard.scss";
+import "./GoogleCalender";
 import ReactDOM from 'react-dom';
 
 
