@@ -135,12 +135,7 @@ class Dashboard extends Component {
           <div className = "module profileInfo">
           PROFILE INFO
           <div>
-            <p>
-            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQK1kVdC4296NNeal8wL7HCmUu1UnfwMIuIuzInsjOPqm1L4gzs3dQ3uzdk6Zt-KBd1YaQTpnkO675m/pubhtml?widget=true&amp;headers=false" width="100%" height="300"></iframe>
-            </p>
-            <p>
-            <iframe src="https://docs.google.com/document/d/e/2PACX-1vSewkITBoEz3KeiQXvwrakCWwb7W-iAIPJliai9nG6XLIkF1HBiJvfaa6gHkQquACTjukBmbGAwFvq4/pub?embedded=true" width="100%" height="300" scrolling="yes"></iframe>
-            </p>
+            
             </div>
           </div>
           <div className = "module photoOfDay">
