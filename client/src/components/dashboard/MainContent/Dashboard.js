@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./MainContent.scss";
 import "./Dashboard.scss";
 import ReactDOM from 'react-dom';
+import Collapsible from 'react-collapsible';
 
 
 import { connect } from "react-redux";
@@ -120,27 +121,48 @@ class Dashboard extends Component {
     return (
       <div className="main-content" style ={{display: "flex", alignContent: "stretch", height: "100vh", backgroundColor: "transparent"}}>
         <div className = "column">
+            <Collapsible trigger="CLICK HERE">
+            <p>
+            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQK1kVdC4296NNeal8wL7HCmUu1UnfwMIuIuzInsjOPqm1L4gzs3dQ3uzdk6Zt-KBd1YaQTpnkO675m/pubhtml?widget=true&amp;headers=false" width="100%" height="300"></iframe>
+            </p>
+            <p>
+            <iframe src="https://docs.google.com/document/d/e/2PACX-1vSewkITBoEz3KeiQXvwrakCWwb7W-iAIPJliai9nG6XLIkF1HBiJvfaa6gHkQquACTjukBmbGAwFvq4/pub?embedded=true" width="100%" height="300"></iframe>
+            </p>
+            </Collapsible>
           <div className = "module podcastplayer" id = "podcastWidget">
             <iframe src="https://open.spotify.com/embed-podcast/episode/0tFhznJp83T6yzLjtUwgKw" width="100%" height="100%" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
           </div>
           <div className = "module profileInfo">
-
+          PROFILE INFO
+          <Collapsible trigger="CLICK HERE">
+            <p>
+            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQK1kVdC4296NNeal8wL7HCmUu1UnfwMIuIuzInsjOPqm1L4gzs3dQ3uzdk6Zt-KBd1YaQTpnkO675m/pubhtml?widget=true&amp;headers=false" width="100%" height="300"></iframe>
+            </p>
+            <p>
+            <iframe src="https://docs.google.com/document/d/e/2PACX-1vSewkITBoEz3KeiQXvwrakCWwb7W-iAIPJliai9nG6XLIkF1HBiJvfaa6gHkQquACTjukBmbGAwFvq4/pub?embedded=true" width="100%" height="300" scrolling="yes"></iframe>
+            </p>
+            </Collapsible>
           </div>
           <div className = "module photoOfDay">
-
+          PHOTO OF THE DAY
           </div>
         </div>
         <div className = "column">
           <div className = "module announcements">
-
+          ANNOUNCEMENTS
           </div>
           <div className = "module suggestionBox">
-
+          SUGGESTION BOX
           </div>
         </div>
         <div className = "column">
           <div className = "module calendar">
-            
+          CALENDAR
+          <Collapsible trigger="CLICK HERE">
+            <p>
+            <iframe src="https://calendar.google.com/calendar/embed?src=pct.bostonu%40gmail.com&ctz=America%2FNew_York" width="800" height="600"></iframe>
+            </p>
+            </Collapsible>
           </div>
           <div className = "module progressbar">
             <ProgressBarEx/> 
@@ -149,8 +171,8 @@ class Dashboard extends Component {
       </div>
       
     );
-  }
-}
+  };
+};
 
 const mapStateToProps = state => ({
   projects: state.projects
