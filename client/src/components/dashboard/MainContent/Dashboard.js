@@ -121,33 +121,33 @@ class Dashboard extends Component {
     return (
       <div className="main-content" style ={{display: "flex", alignContent: "stretch", height: "100vh", backgroundColor: "transparent"}}>
         <div className = "column">
-            <div>
-            <p>
-            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQK1kVdC4296NNeal8wL7HCmUu1UnfwMIuIuzInsjOPqm1L4gzs3dQ3uzdk6Zt-KBd1YaQTpnkO675m/pubhtml?widget=true&amp;headers=false" width="100%" height="300"></iframe>
-            </p>
-            <p>
-            <iframe src="https://docs.google.com/document/d/e/2PACX-1vSewkITBoEz3KeiQXvwrakCWwb7W-iAIPJliai9nG6XLIkF1HBiJvfaa6gHkQquACTjukBmbGAwFvq4/pub?embedded=true" width="100%" height="300"></iframe>
-            </p>
+            <div className = "module podcastplayer" id = "podcastWidget">
+              <iframe src="https://open.spotify.com/embed-podcast/episode/0tFhznJp83T6yzLjtUwgKw" width="100%" height="100%" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
             </div>
-          <div className = "module podcastplayer" id = "podcastWidget">
-            <iframe src="https://open.spotify.com/embed-podcast/episode/0tFhznJp83T6yzLjtUwgKw" width="100%" height="100%" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-          </div>
+            <div>
+              <p>
+              <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQK1kVdC4296NNeal8wL7HCmUu1UnfwMIuIuzInsjOPqm1L4gzs3dQ3uzdk6Zt-KBd1YaQTpnkO675m/pubhtml?widget=true&amp;headers=false" width="100%" height="300"></iframe>
+              </p>
+              <p>
+              <iframe src="https://docs.google.com/document/d/e/2PACX-1vSewkITBoEz3KeiQXvwrakCWwb7W-iAIPJliai9nG6XLIkF1HBiJvfaa6gHkQquACTjukBmbGAwFvq4/pub?embedded=true" width="100%" height="300"></iframe>
+              </p>
+            </div>
           <div className = "module profileInfo">
-          PROFILE INFO
+            <div className = "windowHeader">PROFILE INFO</div>
           <div>
             
             </div>
           </div>
           <div className = "module photoOfDay">
-          PHOTO OF THE DAY
+          <div className = "windowHeader">PHOTO OF THE DAY</div>
           </div>
         </div>
         <div className = "column">
           <div className = "module announcements">
-          ANNOUNCEMENTS
+          <div className = "windowHeader">ANNOUNCEMENTS</div>
           </div>
           <div className = "module suggestionBox">
-          SUGGESTION BOX
+          <div className = "windowHeader">SUGGESTION BOX</div>
           </div>
         </div>
         <div className = "column">

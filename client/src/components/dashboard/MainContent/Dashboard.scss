@@ -84,6 +84,16 @@
   // display: flex;
 }
 
+.windowHeader {
+  position: relative;
+  padding-left: 5%;
+  padding-top: 15px;
+  padding-bottom: 5%;
+  font-family: 'proxima-nova', sans-serif;
+  font-size: small;
+  color: #786B7A;
+}
+
 .profileInfo {
   height: 25%;
 }
