@@ -152,6 +152,9 @@ class Dashboard extends Component {
           </div>
         </div>
         <div className = "column">
+          <div className = "module gdrive">
+            <iframe src="https://drive.google.com/embeddedfolderview?id=0APEF4bLuFI7wUk9PVA#list" width = "100%" height = "100%" frameborder="0"></iframe>
+            </div>
           <div className = "module calendar">
             <iframe class="responsive-iframe" src="https://calendar.google.com/calendar/embed?src=pct.bostonu%40gmail.com&ctz=America%2FNew_York"></iframe>
           </div>
