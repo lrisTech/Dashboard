@@ -148,6 +148,7 @@ class Dashboard extends Component {
           </div>
           <div className = "module suggestionBox">
           <div className = "windowHeader">SUGGESTION BOX</div>
+            <iframe class="responsive-iframe" src="https://docs.google.com/forms/d/1xPmj5fbaXGsCikXECoyh7sOzFy51LhApkmdRBk-sUnE/viewform?embedded=true"></iframe> 
           </div>
         </div>
         <div className = "column">
