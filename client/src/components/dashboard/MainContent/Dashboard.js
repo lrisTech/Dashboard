@@ -3,8 +3,8 @@ import "./MainContent.scss";
 import "./Dashboard.scss";
 import ReactDOM from 'react-dom';
 import Collapsible from 'react-collapsible';
-
-
+import { render } from 'react-dom';
+import ProfileInfo from "./components/profileInfo.js";
 import { connect } from "react-redux";
 import ProgressBarEx from "../../widgets/progressbar/ProgressBar"
 
@@ -13,6 +13,18 @@ import Modal from "./Modal/Modal";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+
+
+const trigger = {
+  position: 'relative',
+  padding: 10,
+  margin: 10,
+  // padding-top: 15px,
+  // padding-bottom: 5%,
+  // font-family: 'proxima-nova', sans-serif,
+  // font-size: small,
+  color: '#786B7A',
+};
 
 class Dashboard extends Component {
   state = {
@@ -124,26 +136,25 @@ class Dashboard extends Component {
             <div className = "module podcastplayer" id = "podcastWidget">
               <iframe src="https://open.spotify.com/embed-podcast/episode/0tFhznJp83T6yzLjtUwgKw" width="100%" height="100%" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
             </div>
-            <div>
-              <p>
-              <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQK1kVdC4296NNeal8wL7HCmUu1UnfwMIuIuzInsjOPqm1L4gzs3dQ3uzdk6Zt-KBd1YaQTpnkO675m/pubhtml?widget=true&amp;headers=false" width="100%" height="300"></iframe>
-              </p>
-              <p>
-              <iframe src="https://docs.google.com/document/d/e/2PACX-1vSewkITBoEz3KeiQXvwrakCWwb7W-iAIPJliai9nG6XLIkF1HBiJvfaa6gHkQquACTjukBmbGAwFvq4/pub?embedded=true" width="100%" height="300"></iframe>
-              </p>
-            </div>
           <div className = "module profileInfo">
-            <div className = "windowHeader">PROFILE INFO</div>
-          <div>
-            
+            {/* <div className = "windowHeader">PROFILE INFO
+            </div> */}
+            <div>
+            <Collapsible style={{padding: 10}} trigger="PROFILE INFO" triggerStyle={trigger}>
+              <ProfileInfo/>
+            </Collapsible>
             </div>
           </div>
-          <div className = "module photoOfDay">
-          <div className = "windowHeader">PHOTO OF THE DAY</div>
+          <div className = "module photoOfDay windowHeader">
+          {/* <div className = "windowHeader">PHOTO OF THE DAY</div> */}
+          <Collapsible style={{padding: 10}} trigger="PHOTO OF THE DAY" triggerStyle={trigger}>
+              <ProfileInfo/>
+            </Collapsible>
           </div>
         </div>
         <div className = "column">
           <div className = "module announcements">
+
           <div className = "windowHeader">ANNOUNCEMENTS</div>
           </div>
           <div className = "module suggestionBox">

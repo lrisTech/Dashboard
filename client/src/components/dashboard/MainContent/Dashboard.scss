@@ -88,34 +88,41 @@
   position: relative;
   padding-left: 5%;
   padding-top: 15px;
-  padding-bottom: 5%;
+  padding-bottom: 200%;
   font-family: 'proxima-nova', sans-serif;
   font-size: small;
   color: #786B7A;
 }
 
 .profileInfo {
-  height: 25%;
+  height:auto; 
+  min-height: xxx;
+  // overflow: hidden;
 }
 
 .photoOfDay {
-  height: 43%;
+  height:auto; 
+  // min-height: 43%;
   color: red;
 }
 
 .announcements {
+  height:auto; 
   height: 52%;
 }
 
 .suggestionBox {
+  height:auto; 
   height: 20%;
 }
 
 .calendar {
+  height:auto; 
   height: 55%;
 }
 
 .progressbar {
+  height:auto; 
   height: 20%;
   width: 100%;
 }

@@ -17,6 +17,7 @@ import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Layout from "./components/dashboard/Layout";
 import NotFound from "./components/404/404";
+//import {reactFile} from "./components/reactFile";
 
 // Style
 
